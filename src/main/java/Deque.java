@@ -24,8 +24,8 @@ public class Deque {
             nItems--;
         }
         arrayQueue[++rear] = item;         // increment rear and insert
-        nItems++;                     // one more item
-   }
+        nItems++;                 // one more item
+    }
     public void insertRight(long item) {
         if  (front == 0) {
             front = maxSize;
@@ -42,7 +42,8 @@ public class Deque {
         nItems++;
     }
     public void removeLeft() {
-        if ((rear == 0) && (nItems == 0)) {
+        if (nItems == 0) {
+            System.out.println("Queue is empty");
             return;
         }
         nItems--;
@@ -58,14 +59,29 @@ public class Deque {
         }
         rear--;
     }
+    public void removeRight() {
+        if (nItems == 0) {
+            System.out.println("Queue is empty");
+            return;
+        }
+        if ((front == maxSize - 1) && (rear == 0) && (nItems == 2)) {
+            front = 0;
+        }
+        nItems--;
+        arrayQueue[front] = 0;
+        if ((front == maxSize - 1) && (rear == maxSize - 1)) {
+            rear = 0;
+            front++;
+        }
+    }
     public void printPos() {
-        System.out.println("rear is: " + rear);
-        System.out.println("front is: " + front);
+        System.out.println("rear is: " + rear + ",front is: " + front);
     }
     public void linePrintQueue() {
         for (int i = 0; i < arrayQueue.length; i++) {
-            System.out.println("element " + i + ": " + arrayQueue[i]);
+            System.out.printf("element " + i + ": " + arrayQueue[i] + "|");
         }
+        System.out.println();
     }
     public boolean isFull() {
         System.out.println("MaxSize is : " + maxSize);
