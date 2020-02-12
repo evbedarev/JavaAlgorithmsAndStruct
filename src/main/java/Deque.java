@@ -94,6 +94,12 @@ public class Deque {
     public int getRear() {
         return rear;
     }
+    public long getItem(int pos) {
+        return arrayQueue[pos];
+    }
+    public boolean isEmpty() {
+        return nItems == 0;
+    }
 }
 
 
