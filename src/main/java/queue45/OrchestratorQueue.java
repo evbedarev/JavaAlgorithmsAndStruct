@@ -1,19 +1,27 @@
 package queue45;
 
 public class OrchestratorQueue {
-    private Queue[] arrQueue;
+    private ThreadQueue[] arrQueue;
     private int numQueues;
+
     public OrchestratorQueue(int maxSize, int numQueues) {
-        arrQueue = new Queue[numQueues];
+        arrQueue = new ThreadQueue[numQueues];
         this.numQueues = numQueues;
-        for (int i=0;i<maxSize; i++) {
-            arrQueue[i] = new Queue(maxSize);
+        for (int i=0;i<numQueues; i++) {
+            arrQueue[i] = new ThreadQueue(maxSize);
+            arrQueue[i].start();
         }
     }
+
+    public void addElementToQueue(int elm) {
+        int mostFreeQueue = findFreeQueue();
+        arrQueue[mostFreeQueue].insert((long) elm);
+    }
+
     public int findFreeQueue() {
-        int count = 0,nItems = 0,numQueue = 0;
+        int nItems = 0,numQueue = 0;
         for (int i=0; i < numQueues;i++) {
-            if (count ==0) {
+            if (i==0) {
                 nItems = arrQueue[i].size();
             }
             if (nItems > arrQueue[i].size()) {
@@ -22,5 +30,46 @@ public class OrchestratorQueue {
             }
         }
         return numQueue;
+    }
+
+    public void showQueueStatus() {
+       StringBuilder sb = new StringBuilder();
+       int maxSize[] = findMaxSizeQueue();
+       printHeader();
+       for (int j = 0; j < maxSize[0]; j++) {
+           sb.delete(0,sb.length());
+           for (int i=0; i < numQueues;i++) {
+               if (arrQueue[i].size() > j) {
+                   sb.append(arrQueue[i].getElmFromPos(j)).append(" ");
+               }
+           }
+           System.out.println(sb);
+       }
+    }
+
+    public void printHeader() {
+        StringBuilder sb = new StringBuilder();
+        int maxSize[] = findMaxSizeQueue();
+        System.out.println("========================");
+        for (int i=0; i<numQueues; i++) {
+            sb.append(i).append(" ");
+        }
+        System.out.println(sb);
+        System.out.println("========================");
+    }
+
+    public int[] findMaxSizeQueue() {
+        int maxSize[] = new int[2];
+        for (int i=0; i<numQueues; i++) {
+            if (i==0) {
+               maxSize[0] = arrQueue[i].size();
+               maxSize[1] = i;
+            }
+            if (maxSize[0] < arrQueue[i].size()) {
+                maxSize[0] = arrQueue[i].size();
+                maxSize[1] = i;
+            }
+        }
+        return maxSize;
     }
 }
