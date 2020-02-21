@@ -39,6 +39,12 @@ public class ThreadQueue extends Thread {
     public long getElmFromPos(int pos) {
         return queue1.getElmFromPos(pos);
     }
+    public long peekFront() {
+        return queue1.peekFront();
+    }
+    public long[] displayQueue() {
+        return queue1.displayQueue();
+    }
 }
 
 

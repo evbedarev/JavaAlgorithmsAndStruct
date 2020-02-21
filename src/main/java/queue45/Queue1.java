@@ -56,6 +56,27 @@ public class Queue1
     public long getElmFromPos(int pos) {
         return queArray[pos];
     }
+
+    public long[] displayQueue() {
+        long[] dispArr = new long[nItems];
+        int elmArr = 0;
+        if (front < rear) {
+            for (int i = front; i < rear + 1; i++) {
+                dispArr[elmArr++] = queArray[i];
+            }
+        } else if (rear < front) {
+            for (int i = front; i < maxSize; i++) {
+                dispArr[elmArr++] = queArray[i];
+            }
+            for (int i = 0; i < rear; i++) {
+                dispArr[elmArr++] = queArray[i];
+            }
+        } else {
+            dispArr[elmArr] = queArray[rear];
+        }
+        return dispArr;
+    }
+
 //--------------------------------------------------------------
 }  // end class Queue
 ////////////////////////////////////////////////////////////////

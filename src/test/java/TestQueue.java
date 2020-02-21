@@ -8,6 +8,9 @@ public class TestQueue {
         queue1.insert(20);
         queue1.insert(10);
         queue1.insert(30);
-        System.out.println(queue1.peekFront());
+        queue1.insert(30);
+        for (long lItem : queue1.displayQueue() ) {
+            System.out.println(lItem);
+        }
     }
 }

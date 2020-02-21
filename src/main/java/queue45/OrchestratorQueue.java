@@ -40,11 +40,21 @@ public class OrchestratorQueue {
            sb.delete(0,sb.length());
            for (int i=0; i < numQueues;i++) {
                if (arrQueue[i].size() > j) {
-                   sb.append(arrQueue[i].getElmFromPos(j)).append(" ");
+                   sb.append(arrQueue[i].displayQueue()[j]).append(" ");
                }
            }
            System.out.println(sb);
        }
+    }
+    public void showQueueFrontElm() {
+        StringBuilder sb = new StringBuilder();
+        int maxSize[] = findMaxSizeQueue();
+        printHeader();
+        sb.delete(0,sb.length());
+        for (int i=0; i < numQueues;i++) {
+                sb.append(arrQueue[i].peekFront()).append(" ");
+        }
+        System.out.println(sb);
     }
 
     public void printHeader() {

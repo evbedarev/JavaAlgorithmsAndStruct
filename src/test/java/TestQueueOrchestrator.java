@@ -14,16 +14,13 @@ public class TestQueueOrchestrator {
     @Test
     public void TestOrchestr() {
         Random random = new Random();
-        OrchestratorQueue orchestratorQueue = new OrchestratorQueue(20, 3);
+        OrchestratorQueue orchestratorQueue = new OrchestratorQueue(20, 5);
+        for (int i = 0; i < 20; i++) {
+            orchestratorQueue.addElementToQueue(random.nextInt(100));
+        }
         orchestratorQueue.addElementToQueue(20);
-        orchestratorQueue.addElementToQueue(10);
-        orchestratorQueue.addElementToQueue(5);
-        orchestratorQueue.addElementToQueue(50);
-        orchestratorQueue.addElementToQueue(60);
-        orchestratorQueue.addElementToQueue(52);
-        orchestratorQueue.addElementToQueue(70);
-        orchestratorQueue.addElementToQueue(82);
         while (true) {
+            //orchestratorQueue.showQueueFrontElm();
             orchestratorQueue.showQueueStatus();
             try {
                 Thread.sleep(1000);
