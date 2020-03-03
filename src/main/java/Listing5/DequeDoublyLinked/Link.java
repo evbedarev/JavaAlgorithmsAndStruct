@@ -1,22 +1,12 @@
 package Listing5.DequeDoublyLinked;
 
 public class Link {
-    private int iPrior;
     private double dData;
     private Link next;
     private Link previous;
 
-    public Link(int iPrior, double dData) {
-        this.iPrior = iPrior;
+    public Link(double dData) {
         this.dData = dData;
-    }
-
-    public int getiPrior() {
-        return iPrior;
-    }
-
-    public void setiPrior(int iPrior) {
-        this.iPrior = iPrior;
     }
 
     public double getdData() {
@@ -44,7 +34,7 @@ public class Link {
     }
 
     public void displayLink() {
-        System.out.println( "{" + iPrior + ", " + dData + "} " );
+        System.out.println( "{" + dData + "} " );
     }
 }
 

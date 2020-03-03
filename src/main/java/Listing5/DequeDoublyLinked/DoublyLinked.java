@@ -13,5 +13,15 @@ public class DoublyLinked {
         return first == null;
     }
 
+    public void insertFirst(long dd) {
+        Link temLink = new Link(dd);
+        if (isEmpty()) {
+            last = temLink;
+        } else {
+            first.setPrevious(temLink);
+            temLink.setNext(first);
+        }
+        first = temLink;
+    }
 
 }

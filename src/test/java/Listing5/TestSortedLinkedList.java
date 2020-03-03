@@ -31,6 +31,17 @@ public class TestSortedLinkedList {
         priorityQueueList.insert(123, 123);
         priorityQueueList.displayQueue();
         Assert.assertTrue(priorityQueueList.peekMin().getiPrior() == 2);
+    }
 
+    @Test
+    public void testPriQueueListDeletingAllElments() {
+        PriorityQueueList priorityQueueList = new PriorityQueueList();
+        priorityQueueList.insert(2,552);
+        priorityQueueList.insert(22,553);
+        priorityQueueList.peekMin();
+        priorityQueueList.peekMin();
+        priorityQueueList.insert(3,333);
+        priorityQueueList.insert(33,333);
+        priorityQueueList.displayQueue();
     }
 }
