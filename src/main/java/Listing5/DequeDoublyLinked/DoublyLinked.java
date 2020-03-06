@@ -85,13 +85,44 @@ public class DoublyLinked {
         current.setNext(tempLink);
         tempLink.setPrevious(current);
     }
+
+    public Link deleteKey(long key) {
+        Link current = first;
+        while (current.getdData() != key) {
+            if (current.getNext() == null) {
+                return null;
+            }
+            current = current.getNext();
+        }
+        if (current == first) {
+            first = current.getNext();
+        } else {
+            current.getPrevious().setNext(current.getNext());
+        }
+        if (current == last) {
+            last = current.getPrevious();
+        } else {
+            current.getNext().setPrevious(current.getPrevious());
+        }
+        return current;
+    }
+
     public void display() {
         Link current = first;
         while (current.getNext() != null) {
-            current.displayLink();
+            if (current == first) {
+                System.out.println("First : ");
+                current.displayLink();
+            } else
+                current.displayLink();
             current = current.getNext();
         }
-        current.displayLink();
+        System.out.println("<===Last :" );
         last.displayLink();
     }
+
+    public void printFirst() {
+        first.displayLink();
+    }
+
 }
