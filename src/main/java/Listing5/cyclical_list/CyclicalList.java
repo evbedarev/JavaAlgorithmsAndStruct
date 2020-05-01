@@ -14,15 +14,22 @@ public class CyclicalList {
         }
         current = tmpLink;
     }
-    public double find(double dData) {
+
+    public boolean find(double dData) {
         Link tmp = current;
         while (current.getNext() != tmp) {
             current = current.getNext();
-            if (current.getdData() == dData) {
-                return dData;
+            if (current.getNext().getdData() == dData) {
+                return true;
             }
         }
-        return Double.parseDouble(null);
+        return false;
+    }
+
+    public void remove() {
+        Link tmp = current.getNext().getNext();
+        current.setNext(tmp);
+        current = tmp;
     }
 
     public void printList() {
@@ -31,5 +38,6 @@ public class CyclicalList {
             System.out.println(current.toString());
             current = current.getNext();
         }
+        System.out.println(current.toString());
     }
 }
