@@ -1,6 +1,7 @@
 package cyclical_list;
 
 import Listing5.cyclical_list.CyclicalList;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -24,7 +25,10 @@ public class TestCyclicalList {
     public void testRemove() {
         System.out.println("Test remove");
         cyclicalList.find(27);
-        cyclicalList.remove();
+        cyclicalList.step();
+        Assert.assertTrue(cyclicalList.remove() == 27);
+        Assert.assertTrue(cyclicalList.remove() == 26);
+        Assert.assertTrue(cyclicalList.remove() == 25);
         cyclicalList.printList();
     }
 

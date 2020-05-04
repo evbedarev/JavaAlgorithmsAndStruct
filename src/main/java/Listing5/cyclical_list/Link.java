@@ -21,6 +21,10 @@ public class Link {
     }
     @Override
     public String toString() {
-       return "Link dData=" + dData + " next Link dData=" + getNext().dData;
+        if (this.getNext() != null)
+            return "Link dData=" + dData + " next Link dData=" + getNext().dData;
+        else
+            return "Link dData=" + dData + " next Link dData=null";
+
     }
 }

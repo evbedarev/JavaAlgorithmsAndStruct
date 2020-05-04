@@ -15,6 +15,15 @@ public class CyclicalList {
         current = tmpLink;
     }
 
+    public void step() {
+        current = current.getNext();
+    }
+
+    public double getCurrent() {
+       return current.getdData();
+    }
+
+    /*Cursor stand before sought element */
     public boolean find(double dData) {
         Link tmp = current;
         while (current.getNext() != tmp) {
@@ -26,10 +35,15 @@ public class CyclicalList {
         return false;
     }
 
-    public void remove() {
-        Link tmp = current.getNext().getNext();
+    public double remove() {
+        Link tmp = current;
+        while (current.getNext() != tmp ) {
+            current = current.getNext();
+        }
+        tmp = current.getNext().getNext();
+        double result = current.getNext().getdData();
         current.setNext(tmp);
-        current = tmp;
+        return result;
     }
 
     public void printList() {
