@@ -18,6 +18,15 @@ public class CyclicalList {
     public void step() {
         current = current.getNext();
     }
+    public boolean hasNext() {
+//        if (current.equals(current.getNext()))
+//            return false;
+//        if (current.getNext() == null)
+//            return false;
+//        return true;
+        return (current.getNext() != null) && (!current.equals(current.getNext()));
+    }
+
 
     public double getCurrent() {
        return current.getdData();
