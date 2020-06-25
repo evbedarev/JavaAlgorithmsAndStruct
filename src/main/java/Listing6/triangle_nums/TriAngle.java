@@ -11,6 +11,6 @@ public class TriAngle {
         if (triNum == triNumMax) {
             return triNum;
         }
-        calculate(triNum + counter++);
+        triNum = calculate(triNum + counter++);
     }
 }
