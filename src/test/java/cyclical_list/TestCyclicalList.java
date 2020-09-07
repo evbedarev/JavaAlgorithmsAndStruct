@@ -21,6 +21,7 @@ public class TestCyclicalList {
     public void tstCycle() {
         cyclicalList.printList();
     }
+
     @Test
     public void testRemove() {
         System.out.println("Test remove");

@@ -1,6 +1,6 @@
-package Listing6;
+package listing6;
 
-import Listing6.triangle_nums.TriAngle;
+import listing6.triangle_nums.TriAngle;
 import org.junit.Test;
 
 public class TestTriAngle {
@@ -8,8 +8,14 @@ public class TestTriAngle {
     public void testTriAngle() {
         long beginTime = System.currentTimeMillis();
         TriAngle triAngle = new TriAngle();
-        System.out.println(triAngle.calculate(500));
+        System.out.println(triAngle.calculate(5500));
         long endTime = System.currentTimeMillis();
         System.out.println("It took time = " + (endTime - beginTime) + " ms");
+    }
+    @Test
+    public void testFactorial() {
+        TriAngle triAngle = new TriAngle();
+        System.out.println(triAngle.calculateFactorial(9));
+
     }
 }
