@@ -1,24 +1,29 @@
 package listing6.annagram;
 
 public class Annagram {
-    public String changeLetter(String word){
-       String letter = word.substring(0,1);
-       String theRestOfTheWord = word.substring(1);
-       if (theRestOfTheWord.length() < 2) {
-           return theRestOfTheWord + letter;
-       }
-       System.out.println("word: " +  theRestOfTheWord + letter);
-       rotate(theRestOfTheWord);
-       return changeLetter(theRestOfTheWord);
+    String partOfWord = "";
+    int printCount = 0;
+    public void changeLetter(String word){
+       rotate(word);
     }
 
-    public void rotate(String word) {
-        System.out.println(word.length());
-        for (int i = 0; i < word.length(); i++) {
-           String let = word.substring(0,1);
-           word = word.substring(1);
-           System.out.println("rotate word result = " + word + let);
-           word = word + let;
+    public String rotate(String word) {
+        String finalWord = word; //remember word at start
+        if (word.length() == 2) {
+            printWord(word);
+            printWord(word.substring(1) + word.substring(0, 1));
+            return word;
         }
+        for (int i = 0; i < word.length(); i++) {
+            partOfWord = partOfWord + word.substring(0,1);
+            rotate(word.substring(1));
+            word = word.substring(1) + word.substring(0,1);
+            partOfWord = partOfWord.substring(0, partOfWord.length() - 1);
+        }
+        return finalWord;
+    }
+
+    public void printWord(String word) {
+        System.out.println(++printCount + " " + partOfWord + word);
     }
 }
