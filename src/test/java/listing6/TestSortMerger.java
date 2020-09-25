@@ -9,7 +9,8 @@ public class TestSortMerger {
     @Test
     public void testSortMerger() {
         Random random = new Random();
-        long[] theArray = new long[] {10,2,12,7,22,8};
+//        long[] theArray = new long[] {10,2,12,7};
+        long[] theArray = new long[] {10,2,12,7,22,4,99,43,23,54};
 //        for (int i = 0; i < theArray.length; i++) {
 //            theArray[i] = random.nextInt(22);
 //        }
