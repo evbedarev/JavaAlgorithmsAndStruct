@@ -8,7 +8,7 @@ public class TestTriAngle {
     public void testTriAngle() {
         long beginTime = System.currentTimeMillis();
         TriAngle triAngle = new TriAngle();
-        System.out.println(triAngle.calculate(5500));
+        System.out.println(triAngle.calculate(10));
         long endTime = System.currentTimeMillis();
         System.out.println("It took time = " + (endTime - beginTime) + " ms");
     }
