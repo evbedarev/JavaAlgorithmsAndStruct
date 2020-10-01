@@ -9,14 +9,14 @@ public class TestExponentiation {
     public void testExp() {
         Exponentiation exponentiation = new Exponentiation();
         long begin = System.currentTimeMillis();
-        System.out.println(exponentiation.calc(2,44));
+        System.out.println(exponentiation.calc(2,19));
         long end = System.currentTimeMillis();
         System.out.println("Time= " + (end - begin));
     }
 
     @Test
     public void  testExpStack() {
-        ExponentiationStack exponentiationStack = new ExponentiationStack(2,9);
+        ExponentiationStack exponentiationStack = new ExponentiationStack(2,19);
         System.out.println(exponentiationStack.calculate());
     }
 

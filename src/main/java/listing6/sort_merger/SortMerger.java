@@ -37,11 +37,12 @@ public class SortMerger {
     }
 
     private void merger(long[] workSpace, int lowerPtr, int hightPtr, int upperBound) {
-        int j = lowerPtr;
+        int j = 0;
         int lowerBound = lowerPtr;
         int mid = hightPtr - 1;
+        int n = upperBound - lowerBound +1;
         while (lowerPtr <= mid && hightPtr <= upperBound) {
-            if (workSpace[lowerPtr] <= theArray[hightPtr]) {
+            if (theArray[lowerPtr] < theArray[hightPtr]) {
                 workSpace[j++] = theArray[lowerPtr++];
             } else {
                 workSpace[j++] = theArray[hightPtr++];
@@ -52,8 +53,8 @@ public class SortMerger {
 
         while (hightPtr <= upperBound)
             workSpace[j++] = theArray[hightPtr++];
-        for (int i = 0; i < j - lowerBound; i++) {
-            theArray[lowerBound+i] = workSpace[lowerBound + i];
+        for (int i = 0; i < n; i++) {
+            theArray[lowerBound+i] = workSpace[i];
         }
     }
 
