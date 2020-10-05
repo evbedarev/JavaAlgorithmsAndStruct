@@ -15,7 +15,7 @@ public class BackPackTask {
     private int putThings(int weight, int indexElm) {
         int weightThings = weight;
         int answer = 0;
-        System.out.println(indexElm);
+//        System.out.println(indexElm);
         if (weightThings - someThings[indexElm] == 0) {
             System.out.println("Put in back thing weight = " + someThings[indexElm]);
             return someThings[indexElm];
